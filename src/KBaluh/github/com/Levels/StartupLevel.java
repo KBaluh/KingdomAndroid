@@ -308,6 +308,17 @@ public class StartupLevel extends Level {
         return player.getY();
     }
 
+    @Override
+    public int getPlayerWidth() {
+        return player.getImageWidth();
+    }
+
+    @Override
+    public int getPlayerHeight() {
+        return player.getImageHeight();
+    }
+
+
     /**
      * Init spawners on level
      */
@@ -521,7 +532,7 @@ public class StartupLevel extends Level {
     /**
      * Set battle text
      */
-    private void showBattleText() {
+    protected void showBattleText() {
         battleShowTimeLife = battleMaxShowTime;
         battleShowText = "Level: " + getLevelNumber() + ", Battle: " + battleNumber;
     }
