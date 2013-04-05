@@ -10,6 +10,8 @@ import android.graphics.Canvas;
 import android.hardware.SensorEventListener;
 import android.view.MotionEvent;
 
+import java.util.HashMap;
+
 /**
  * User: KBaluh
  * Date time: 16.10.12 17:26
@@ -18,6 +20,8 @@ public abstract class Level implements Runnable, SensorEventListener {
 
     private Context context;
     public GameScreen gameScreen;
+
+    private HashMap<Integer, Bitmap> imageCache = new HashMap<Integer, Bitmap>();
 
     public Level(Context context, GameScreen gameScreen) {
         this.context = context;
@@ -36,7 +40,12 @@ public abstract class Level implements Runnable, SensorEventListener {
     }
 
     public Bitmap loadImage(int id) {
-        return BitmapFactory.decodeResource(context.getResources(), id);
+        Bitmap image = imageCache.get(id);
+        if (image == null) {
+            image = BitmapFactory.decodeResource(context.getResources(), id);
+            imageCache.put(id, image);
+        }
+        return image;
     }
 
     public abstract void addSpawner(Spawner spawner);
