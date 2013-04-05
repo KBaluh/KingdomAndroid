@@ -69,12 +69,16 @@ public abstract class Entity {
         }
     }
 
-    Rectangle getRectangle() {
+    public Rectangle getRectangle() {
         return new Rectangle(getX(), getY(), getImageWidth(), getImageHeight());
     }
 
     public boolean haveCollision(Entity entity) {
         return getRectangle().intersects(entity.getRectangle());
+    }
+
+    public boolean haveCollision(Rectangle rectangle) {
+        return getRectangle().intersects(rectangle);
     }
 
     public abstract Bitmap getImage();

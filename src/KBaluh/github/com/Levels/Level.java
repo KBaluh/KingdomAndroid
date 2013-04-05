@@ -63,4 +63,6 @@ public abstract class Level implements Runnable, SensorEventListener {
     public abstract int getLevelNumber();
     public abstract int getPlayerX();
     public abstract int getPlayerY();
+    public abstract int getPlayerWidth();
+    public abstract int getPlayerHeight();
 }

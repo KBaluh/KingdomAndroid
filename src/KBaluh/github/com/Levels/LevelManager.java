@@ -34,7 +34,7 @@ public class LevelManager {
 
     private void initLevels(GameScreen screen, Context context) {
         levels.clear();
-
+        levels.add(new MainMenuLevel(context, screen));
         levels.add(new StartupLevel(context, screen));
     }
 }
